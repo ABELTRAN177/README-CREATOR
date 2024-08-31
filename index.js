@@ -50,14 +50,26 @@ function init() {
                 message: 'table of contents'
             },
             {
+                type: 'confirm',
+                name: 'confirmInstall',
+                message: 'Do you want to include installation instructions?',
+            },
+            {
                 type: 'input',
                 name: questions[3],
-                message: 'installation instructions'
+                message: 'installation instructions',
+                when: ({ confirmInstall }) => confirmInstall
+            },
+            {
+                type: 'confirm',
+                name: 'confirmUsage',
+                message: 'Do you want to include usage information?',
             },
             {
                 type: 'input',
                 name: questions[4],
-                message: 'usage information'
+                message: 'usage information',
+                when: ({ confirmUsage }) => confirmUsage
             },
             {
                 type: 'input',
@@ -65,9 +77,15 @@ function init() {
                 message: 'contributors'
             },
             {
+                type: 'confirm',
+                name: 'confirmTest',
+                message: 'Do you want to include testing information?',
+            },
+            {
                 type: 'input',
                 name: questions[6],
-                message: 'test instructions'
+                message: 'test',
+                when: ({ confirmTest }) => confirmTest
             },
             {
                 type: 'list',
