@@ -37,6 +37,10 @@ function renderLicenseSection(license) {
     return 'This project is licensed under the MIT License.';
   } else if (license === 'GNU GPLv3') {
     return 'This project is licensed under the GNU GPLv3 License.';
+  } else if (license === 'Apache') {
+    return 'This project is licensed under the Apache License.';
+  } else if (license === 'ISC') {
+    return 'This project is licensed under the ISC License.';
   } else {
     return '';
   }
@@ -44,23 +48,68 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let markdown= `# ${data.title}
+  let markdown = `# ${data.title}
 
   ## Description
   ${data.description}
 
   ## Table of Contents
-  ${data.contents}
+  1. [Description](#description)
   `;
-   if (data.license) {
+    if (data.installation) {
+     markdown += `2. [Installation](#installation)\n`;
+    }
+    if (data.usage) {
+     markdown += `3. [Usage](#usage)\n`;
+    }
+    if (data.contributors) {
+      markdown += `4. [Contributors](#contributors)\n`;
+    }
+    if (data.test) {
+     markdown += `5. [Testing](#testing)\n`;
+    }
+    if (data.license) {
+      markdown += `6. [License](#license)\n`;
+    }
+    if (data.installation) {
+      markdown += `
+  ## Installation
+    ${data.installation}
+    `;
+      }
+
+      if (data.usage) {
+          markdown += `
+  ## Usage
+    ${data.usage}
+    `;
+      }
+
+  markdown += `
+  ## Contributors
+  ${data.contributors}
+  `;
+  if (data.test) {
     markdown += `
-    ## License
+  ## Testing
+    ${data.test}
+    `;
+  }
+  markdown += `
+  ## Reach Out
+  If you have any questions, please feel free to reach out to me on GitHub at [@${data.github}](https://github.com/${data.github}) or via email at ${data.email}.
+  `;
+
+  if (data.license) {
+    markdown += `
+  ## License
     ${renderLicenseBadge(data.license)} 
     ${renderLicenseLink(data.license)}
     ${renderLicenseSection(data.license)}
-    `;  
-    }
-    return markdown;
+    `;
+  }
+  return markdown;
+
 }
 
 module.exports = generateMarkdown;

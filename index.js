@@ -1,13 +1,13 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
     'What is the title of your project?', //0
     'What is the description of your project?', //1
-    'What are the details you want to incldue in the table of contents?', //2
+    'What are the details you want to include in the table of contents?', //2
     'What are the installation instructions for your project?', //3
     'What is the usage information for your project?', //4
     'What are the contribution guidelines for your project?', //5
@@ -36,19 +36,19 @@ function init() {
         .prompt([
             {
                 type: 'input',
-                name: questions[0], 
-                message: 'title'
+                name: 'title', 
+                message: questions[0]
             },
             {
                 type: 'input',
-                name: questions[1],
-                message: 'project description'
+                name: 'description',
+                message: questions[1]
             },
-            {
-                type: 'input',
-                name: questions[2],
-                message: 'table of contents'
-            },
+            // {
+            //     type: 'input',
+            //     name: 'contents',
+            //     message: questions[2]
+            // },
             {
                 type: 'confirm',
                 name: 'confirmInstall',
@@ -56,8 +56,8 @@ function init() {
             },
             {
                 type: 'input',
-                name: questions[3],
-                message: 'installation instructions',
+                name: 'installation',
+                message: questions[3],
                 when: ({ confirmInstall }) => confirmInstall
             },
             {
@@ -67,14 +67,14 @@ function init() {
             },
             {
                 type: 'input',
-                name: questions[4],
-                message: 'usage information',
+                name: 'usage',
+                message: questions[4],
                 when: ({ confirmUsage }) => confirmUsage
             },
             {
                 type: 'input',
-                name: questions[5],
-                message: 'contributors'
+                name: 'contributors',
+                message: questions[5]
             },
             {
                 type: 'confirm',
@@ -83,31 +83,32 @@ function init() {
             },
             {
                 type: 'input',
-                name: questions[6],
-                message: 'test',
+                name: 'test',
+                message: questions[6],
                 when: ({ confirmTest }) => confirmTest
             },
             {
                 type: 'list',
-                name: questions[7],
-                message: 'what license are you using?',
+                name: 'license',
+                message: questions[7],
                 choices: ['MIT', 'GNU', 'Apache', 'ISC', 'None']
             },
             {
                 type: 'input',
-                name: questions[8],
-                message: 'github username'
+                name: 'github',
+                message: questions[8]
             },
             {
                 type: 'input',
-                name: questions[9],
-                message: 'email'
+                name: 'email',
+                message: questions[9]
             }
         ])
-        .then((input) => {
-            writeToFile('README.md', generateMarkdown(input));
-        });
-}
+
+                .then((input) => {
+                    writeToFile('README.md', generateMarkdown(input));
+                });
+        } 
 
 // Function call to initialize app
 init(
