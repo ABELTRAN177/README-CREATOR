@@ -51,26 +51,26 @@ function generateMarkdown(data) {
   let markdown = `# ${data.title}
 
   ## Description
-  ${data.description}
+    ${data.description}
 
   ## Table of Contents
   1. [Description](#description)
   `;
-    if (data.installation) {
-     markdown += `2. [Installation](#installation)\n`;
-    }
-    if (data.usage) {
-     markdown += `3. [Usage](#usage)\n`;
-    }
-    if (data.contributors) {
-      markdown += `4. [Contributors](#contributors)\n`;
-    }
-    if (data.test) {
-     markdown += `5. [Testing](#testing)\n`;
-    }
-    if (data.license) {
-      markdown += `6. [License](#license)\n`;
-    }
+  if (data.installation) {
+    markdown += `2. [Installation](#installation)\n`;
+  }
+  if (data.usage) {
+    markdown += `  3. [Usage](#usage)\n`;
+  }
+  if (data.contributors) {
+    markdown += `  4. [Contributors](#contributors)\n`;
+  }
+  if (data.test) {
+    markdown += `  5. [Testing](#testing)\n`;
+  }
+  if (data.license) {
+    markdown += `  6. [License](#license)\n`;
+  }
     if (data.installation) {
       markdown += `
   ## Installation
@@ -87,7 +87,7 @@ function generateMarkdown(data) {
 
   markdown += `
   ## Contributors
-  ${data.contributors}
+    ${data.contributors}
   `;
   if (data.test) {
     markdown += `
@@ -97,7 +97,7 @@ function generateMarkdown(data) {
   }
   markdown += `
   ## Reach Out
-  If you have any questions, please feel free to reach out to me on GitHub at [@${data.github}](https://github.com/${data.github}) or via email at ${data.email}.
+    If you have any questions, please feel free to reach out to me on GitHub at [@${data.github}](https://github.com/${data.github}) or via email at ${data.email}.
   `;
 
   if (data.license) {
