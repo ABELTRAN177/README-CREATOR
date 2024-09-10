@@ -53,7 +53,6 @@ function generateMarkdown(data) {
   ## Description
     ${data.description}
 
-  // adds table of contents with links to each section 
   ## Table of Contents
   1. [Description](#description)
   `;
