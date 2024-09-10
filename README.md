@@ -3,7 +3,6 @@
   ## Description
     A professional readme generator that allows the user to display project expectations and guidelines 
 
-  // adds table of contents with links to each section 
   ## Table of Contents
   1. [Description](#description)
   2. [Installation](#installation)
