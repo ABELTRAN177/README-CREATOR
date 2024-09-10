@@ -23,6 +23,9 @@
   
   ## Testing
     run node index.js in the terminal/integrated terminal 
+
+  ## Video Walkthrough
+  https://watch.screencastify.com/v/OPKi3VVFciDBNiupqJrQ
     
   ## Reach Out
     If you have any questions, please feel free to reach out to me on GitHub at [@abeltran177](https://github.com/abeltran177) or via email at angel.beltran17@gmail.com.
