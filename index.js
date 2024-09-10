@@ -31,6 +31,7 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
+// gave the user the option to include or exclude certain sections based on their project needs
 function init() {
     inquirer
         .prompt([
@@ -44,6 +45,7 @@ function init() {
                 name: 'description',
                 message: questions[1]
             },
+            // did not end up using this question
             // {
             //     type: 'input',
             //     name: 'contents',
