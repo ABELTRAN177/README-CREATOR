@@ -1,6 +1,8 @@
 # README CREATOR  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <img width="1800" alt="Screenshot 2024-09-15 at 11 03 01 PM" src="https://github.com/user-attachments/assets/6437f362-842b-4e30-b234-d991ecdf6ab9">
 
+  Image taken from video walkthrough!
+
   ## Description
     A professional readme generator that allows the user to display project expectations and guidelines 
 
